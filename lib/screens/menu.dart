@@ -10,8 +10,9 @@ class MyHomePage extends StatelessWidget {
   final String kelas = "PBP E";
 
   final List<ItemHomepage> items = const [
-    ItemHomepage("Lihat Proyek", Icons.folder, Color(0xFF1976D2)), // Biru
+    ItemHomepage("Lihat Proyek & Pengalaman", Icons.folder, Color(0xFF1976D2)), // Biru
     ItemHomepage("Tambah Proyek", Icons.add_circle, Color(0xFF2E7D32)), // Hijau
+    ItemHomepage("Tambah Pengalaman", Icons.work_outline, Color(0xFF6A1B9A)),
     ItemHomepage("Logout", Icons.logout, Color(0xFFD32F2F)), // Merah
   ];
 
@@ -72,19 +73,23 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
 
-                    // GridView menampilkan kartu tombol dalam tata letak kisi 3 kolom.
-                    GridView.count(
-                      primary: false,
-                      physics: const NeverScrollableScrollPhysics(),
-                      padding: const EdgeInsets.all(20),
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      crossAxisCount: 3,
-                      // shrinkWrap agar ukuran kisi menyesuaikan tinggi konten anak.
-                      shrinkWrap: true,
-                      children: items.map((ItemHomepage item) {
-                        return ItemCard(item);
-                      }).toList(),
+                    // GridView menampilkan kartu tombol dalam tata letak kisi 2x2 yang proporsional.
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 480),
+                      child: GridView.count(
+                        primary: false,
+                        physics: const NeverScrollableScrollPhysics(),
+                        padding: const EdgeInsets.all(20),
+                        crossAxisSpacing: 12,
+                        mainAxisSpacing: 12,
+                        crossAxisCount: 2,
+                        childAspectRatio: 1.35,
+                        // shrinkWrap agar ukuran kisi menyesuaikan tinggi konten anak.
+                        shrinkWrap: true,
+                        children: items.map((ItemHomepage item) {
+                          return ItemCard(item);
+                        }).toList(),
+                      ),
                     ),
                   ],
                 ),
