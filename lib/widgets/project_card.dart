@@ -25,16 +25,7 @@ class ItemCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         // Aksi ketika kartu ditekan oleh pengguna.
         onTap: () {
-          // Menampilkan SnackBar dengan pesan interaktif.
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}!"),
-              ),
-            );
-
-          // Navigasi ke halaman form ketika tombol Tambah Proyek ditekan.
+          // Navigasi ke halaman form sesuai tombol yang ditekan.
           if (item.name == "Tambah Proyek") {
             Navigator.push(
               context,
