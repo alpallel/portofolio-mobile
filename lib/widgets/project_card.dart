@@ -29,7 +29,8 @@ class ItemCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         // Aksi ketika kartu ditekan oleh pengguna.
         onTap: () async {
-          if (item.name == "Lihat Proyek") {
+          if (item.name == "Lihat Proyek" ||
+              item.name == "Lihat Proyek & Pengalaman") {
             Navigator.push(
               context,
               MaterialPageRoute(
