@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/screens/experience_form.dart';
 import 'package:myportofolio_mobile/screens/project_form.dart';
+import 'package:myportofolio_mobile/screens/project_list_screen.dart';
+import 'package:myportofolio_mobile/services/auth_state.dart';
+import 'package:myportofolio_mobile/widgets/auth_guard.dart';
+import 'package:provider/provider.dart';
 
 class ItemHomepage {
   final String name;
@@ -24,11 +28,19 @@ class ItemCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
         // Aksi ketika kartu ditekan oleh pengguna.
-        onTap: () {
-          // Navigasi ke halaman form sesuai tombol yang ditekan.
-          if (item.name == "Tambah Proyek") {
+        onTap: () async {
+          if (item.name == "Lihat Proyek") {
             Navigator.push(
               context,
+              MaterialPageRoute(
+                builder: (context) => const ProjectListScreen(),
+              ),
+            );
+          } else if (item.name == "Tambah Proyek") {
+            final navigator = Navigator.of(context);
+            final ok = await ensureLoggedIn(context);
+            if (!ok || !context.mounted) return;
+            navigator.push(
               MaterialPageRoute(
                 builder: (context) => const ProjectFormPage(),
               ),
@@ -40,6 +52,24 @@ class ItemCard extends StatelessWidget {
                 builder: (context) => const ExperienceFormPage(),
               ),
             );
+          } else if (item.name == "Logout") {
+            final authState = context.read<AuthState>();
+            final messenger = ScaffoldMessenger.of(context);
+            if (!authState.isLoggedIn) {
+              messenger
+                ..hideCurrentSnackBar()
+                ..showSnackBar(
+                  const SnackBar(content: Text('Kamu belum login.')),
+                );
+              return;
+            }
+            await authState.logout();
+            if (!context.mounted) return;
+            messenger
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                const SnackBar(content: Text('Berhasil logout!')),
+              );
           }
         },
         child: Container(
