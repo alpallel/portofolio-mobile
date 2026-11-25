@@ -72,11 +72,7 @@ class ProjectDetailScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Row(
               children: [
-                Icon(
-                  Icons.code,
-                  size: 18,
-                  color: theme.colorScheme.primary,
-                ),
+                Icon(Icons.code, size: 18, color: theme.colorScheme.primary),
                 const SizedBox(width: 6),
                 Expanded(
                   child: Text(
@@ -100,10 +96,7 @@ class ProjectDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              project.description,
-              style: theme.textTheme.bodyLarge,
-            ),
+            Text(project.description, style: theme.textTheme.bodyLarge),
             const SizedBox(height: 20),
             Text(
               'Link Proyek',

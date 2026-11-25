@@ -147,10 +147,7 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
         centerTitle: true,
         title: const Text(
           'Form Tambah Proyek',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: theme.colorScheme.primary,
         iconTheme: const IconThemeData(color: Colors.white),

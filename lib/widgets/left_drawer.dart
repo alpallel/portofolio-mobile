@@ -54,9 +54,7 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const MyHomePage(),
-                ),
+                MaterialPageRoute(builder: (context) => const MyHomePage()),
               );
             },
           ),
@@ -110,9 +108,7 @@ class LeftDrawer extends StatelessWidget {
                 Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const LoginScreen(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
                 );
               },
             )

@@ -41,9 +41,7 @@ class ItemCard extends StatelessWidget {
             final ok = await ensureLoggedIn(context);
             if (!ok || !context.mounted) return;
             navigator.push(
-              MaterialPageRoute(
-                builder: (context) => const ProjectFormPage(),
-              ),
+              MaterialPageRoute(builder: (context) => const ProjectFormPage()),
             );
           } else if (item.name == "Tambah Pengalaman") {
             Navigator.push(
@@ -67,9 +65,7 @@ class ItemCard extends StatelessWidget {
             if (!context.mounted) return;
             messenger
               ..hideCurrentSnackBar()
-              ..showSnackBar(
-                const SnackBar(content: Text('Berhasil logout!')),
-              );
+              ..showSnackBar(const SnackBar(content: Text('Berhasil logout!')));
           }
         },
         child: Container(
@@ -78,11 +74,7 @@ class ItemCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
+                Icon(item.icon, color: Colors.white, size: 30.0),
                 const Padding(padding: EdgeInsets.all(3)),
                 Text(
                   item.name,

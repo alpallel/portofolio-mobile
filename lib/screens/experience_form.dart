@@ -79,10 +79,7 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
         centerTitle: true,
         title: const Text(
           'Form Tambah Pengalaman',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
         iconTheme: const IconThemeData(color: Colors.white),
@@ -164,10 +161,7 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
                   initialValue: _categories.first,
                   items: _categories
                       .map(
-                        (cat) => DropdownMenuItem(
-                          value: cat,
-                          child: Text(cat),
-                        ),
+                        (cat) => DropdownMenuItem(value: cat, child: Text(cat)),
                       )
                       .toList(),
                   onChanged: (String? newValue) {
@@ -324,7 +318,9 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              title: const Text('Pengalaman berhasil tersimpan'),
+                              title: const Text(
+                                'Pengalaman berhasil tersimpan',
+                              ),
                               content: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -44,10 +44,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
       appBar: AppBar(
         title: const Text(
           'Daftar Proyek',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         backgroundColor: theme.colorScheme.primary,
         iconTheme: const IconThemeData(color: Colors.white),
@@ -95,9 +92,7 @@ class _ProjectListScreenState extends State<ProjectListScreen> {
                       constraints: BoxConstraints(
                         minHeight: constraints.maxHeight,
                       ),
-                      child: const Center(
-                        child: Text('No projects found.'),
-                      ),
+                      child: const Center(child: Text('No projects found.')),
                     ),
                   );
                 },
